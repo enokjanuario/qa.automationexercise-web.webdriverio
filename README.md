@@ -1,6 +1,5 @@
 # Projeto de Testes Automatizados - Automation Exercise Web
 
-## Badges de Tecnologias
 [![WebdriverIO](https://img.shields.io/badge/WebdriverIO-ea5906?style=for-the-badge&logo=webdriverio&logoColor=white)](https://webdriver.io/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
