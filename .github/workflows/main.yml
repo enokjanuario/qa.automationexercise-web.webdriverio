@@ -26,7 +26,7 @@ jobs:
       - name: Install ChromeDriver
         run: |
           CHROME_VERSION=$(google-chrome-stable --version | cut -d ' ' -f 3 | cut -d '.' -f 1)
-          wget -N https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$CHROME_VERSION.0.0.0/linux64/chromedriver-linux64.zip
+          wget https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION.0.0.0/linux64/chromedriver-linux64.zip
           unzip chromedriver-linux64.zip
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
