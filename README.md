@@ -52,7 +52,7 @@ qa.automationexercise-web.webdriverio/
 └── README.md                  # Documentação do projeto
 ```
 
-## Configuracao e Instalacao
+## Configuração e Instalação
 1. Clone o repositório
 ```bash
 git clone https://github.com/enokjanuario/qa.automationexercise-web.webdriverio.git
