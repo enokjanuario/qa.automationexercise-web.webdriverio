@@ -31,26 +31,22 @@ jobs:
           sudo mv chromedriver /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
 
-      - name: Install Allure
-        run: |
-          sudo wget https://github.com/allure-framework/allure2/releases/download/2.24.1/allure-2.24.1.tgz
-          sudo tar -zxvf allure-2.24.1.tgz -C /opt/
-          sudo ln -s /opt/allure-2.24.1/bin/allure /usr/bin/allure
-
       - name: Install dependencies
         run: npm ci
 
       - name: Run WebdriverIO tests
         run: npm run test:headless
 
-      - name: Generate Allure Report
+      - name: List Allure Results
         if: always()
-        run: npm run report
+        run: |
+          ls -la allure-results
+          cat allure-results/* || true
 
-      - name: Upload Allure report
+      - name: Upload Allure Results
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: allure-report
-          path: allure-report/
+          name: allure-results
+          path: allure-results/
           retention-days: 30
