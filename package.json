@@ -9,8 +9,7 @@
     "report": "allure generate --clean && allure open",
     "test:register": "wdio run wdio.conf.js --spec ./test/specs/register.spec.js"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "enokjanuario",
   "devDependencies": {
     "@babel/cli": "^7.21.5",
@@ -23,7 +22,7 @@
     "@wdio/mocha-framework": "^8.10.4",
     "@wdio/spec-reporter": "^8.10.5",
     "allure-commandline": "^2.22.1",
-    "chromedriver": "^113.0.0",
+    "chromedriver": "^134.0.3",
     "wdio-chromedriver-service": "^8.1.1"
   }
 }
