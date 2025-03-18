@@ -1,43 +1,49 @@
-import BasePage from './base.page.js';
+import Page from './page.js';
 
-class HomePage extends BasePage {
-    // Locators
-    get signupLoginBtn() { return $('a[href="/login"]'); }
-    get productsBtn() { return $('a[href="/products"]'); }
-    get cartBtn() { return $('a[href="/view_cart"]'); }
-    get loggedInAs() { return $('.navbar-nav li:nth-child(10) a'); }
-    get deleteAccountBtn() { return $('a[href="/delete_account"]'); }
-    get logoutBtn() { return $('a[href="/logout"]'); }
+class HomePage extends Page {
 
-    // Actions
-    async navigateToSignupLogin() {
-        await this.clickElement(this.signupLoginBtn);
-    }
-
-    async navigateToProducts() {
-        await this.clickElement(this.productsBtn);
-    }
-
-    async navigateToCart() {
-        await this.clickElement(this.cartBtn);
-    }
-
-    async verifyLoggedInAsUsername(username) {
-        const loggedInText = await this.getText(this.loggedInAs);
-        return loggedInText === `Logged in as ${username}`;
-    }
-
-    async deleteAccount() {
-        await this.clickElement(this.deleteAccountBtn);
-    }
-
-    async logout() {
-        await this.clickElement(this.logoutBtn);
-    }
+    get signupLoginLink() { return $('a[href="/login"]'); }
+    get productsLink() { return $('a[href="/products"]'); }
+    get cartLink() { return $('a[href="/view_cart"]'); }
+    get homeLink() { return $('a[href="/"]'); }
+    get loggedInAsUserText() { return $('//a[contains(text(), "Logged in as")]'); }
+    get deleteAccountLink() { return $('a[href="/delete_account"]'); }
+    get logoutLink() { return $('a[href="/logout"]'); }
 
     async open() {
-        return super.open('/');
+        await super.open('/');
+        await this.waitForPageLoad();
+    }
+
+    async clickSignupLogin() {
+        await this.clickElement(this.signupLoginLink);
+    }
+
+    async clickProducts() {
+        await this.clickElement(this.productsLink);
+    }
+
+    async clickCart() {
+        await this.clickElement(this.cartLink);
+    }
+
+    async verifyUserLoggedIn() {
+        return await this.isElementVisible(this.loggedInAsUserText);
+    }
+
+    async getLoggedInUsername() {
+        const text = await this.getElementText(this.loggedInAsUserText);
+        return text.replace('Logged in as ', '');
+    }
+
+    async clickDeleteAccount() {
+        await this.clickElement(this.deleteAccountLink);
+    }
+
+    async clickLogout() {
+        await this.clickElement(this.logoutLink);
     }
 }
 
-export default new HomePage();
+const homePage = new HomePage();
+export default homePage;

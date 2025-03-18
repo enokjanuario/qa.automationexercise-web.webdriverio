@@ -1,0 +1,37 @@
+name: WebdriverIO Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run WebdriverIO tests
+        run: npm run test:headless
+
+      - name: Generate Allure Report
+        if: always()
+        run: npm run report
+
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: allure-report
+          path: allure-report/
+          retention-days: 30

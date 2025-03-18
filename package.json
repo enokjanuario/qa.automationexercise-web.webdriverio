@@ -1,28 +1,38 @@
 {
   "name": "qa.automationexercise-web.webdriverio",
   "version": "1.0.0",
-  "description": "Test automation for automationexercise.com using WebdriverIO",
+  "description": "Test automation for Automation Exercise website using WebdriverIO",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "wdio run wdio.conf.js",
     "test:headless": "wdio run wdio.conf.js --headless",
-    "report": "allure generate --clean && allure open",
-    "test:register": "wdio run wdio.conf.js --spec ./test/specs/register.spec.js"
+    "test:register": "wdio run wdio.conf.js --spec ./test/specs/register.spec.js",
+    "test:search": "wdio run wdio.conf.js --spec ./test/specs/search.spec.js",
+    "test:cart-quantity": "wdio run wdio.conf.js --spec ./test/specs/cart-quantity.spec.js",
+    "test:add-to-cart": "wdio run wdio.conf.js --spec ./test/specs/add-to-cart.spec.js",
+    "test:remove-from-cart": "wdio run wdio.conf.js --spec ./test/specs/remove-from-cart.spec.js",
+    "report": "allure generate allure-results --clean && allure open"
   },
-  "keywords": [],
-  "author": "enokjanuario",
+  "keywords": [
+    "webdriverio",
+    "automation",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.21.5",
-    "@babel/core": "^7.21.5",
-    "@babel/preset-env": "^7.21.5",
-    "@babel/register": "^7.21.5",
-    "@wdio/allure-reporter": "^8.10.4",
-    "@wdio/cli": "^8.10.5",
-    "@wdio/local-runner": "^8.10.5",
-    "@wdio/mocha-framework": "^8.10.4",
-    "@wdio/spec-reporter": "^8.10.5",
-    "allure-commandline": "^2.22.1",
-    "chromedriver": "^134.0.3",
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/register": "^7.22.15",
+    "@wdio/allure-reporter": "^8.24.2",
+    "@wdio/cli": "^8.24.3",
+    "@wdio/local-runner": "^8.24.3",
+    "@wdio/mocha-framework": "^8.24.3",
+    "@wdio/spec-reporter": "^8.24.2",
+    "allure-commandline": "^2.24.1",
+    "chai": "^4.3.10",
+    "chromedriver": "^134.0.0",
     "wdio-chromedriver-service": "^8.1.1"
   }
 }
