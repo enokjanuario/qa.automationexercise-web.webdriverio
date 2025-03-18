@@ -1,0 +1,29 @@
+{
+  "name": "qa.automationexercise-web.webdriverio",
+  "version": "1.0.0",
+  "description": "Test automation for automationexercise.com using WebdriverIO",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio run wdio.conf.js",
+    "test:headless": "wdio run wdio.conf.js --headless",
+    "report": "allure generate --clean && allure open",
+    "test:register": "wdio run wdio.conf.js --spec ./test/specs/register.spec.js"
+  },
+  "keywords": [
+  ],
+  "author": "enokjanuario",
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.5",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/register": "^7.21.5",
+    "@wdio/allure-reporter": "^8.10.4",
+    "@wdio/cli": "^8.10.5",
+    "@wdio/local-runner": "^8.10.5",
+    "@wdio/mocha-framework": "^8.10.4",
+    "@wdio/spec-reporter": "^8.10.5",
+    "allure-commandline": "^2.22.1",
+    "chromedriver": "^113.0.0",
+    "wdio-chromedriver-service": "^8.1.1"
+  }
+}
